@@ -1,26 +1,85 @@
+
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+:root,
+html[data-theme="light"] {
+  color-scheme: light;
+
+  --background: #f3f6fc;
+  --foreground: #101b35;
+  --muted: #64748b;
+  --border: #dce3ee;
+  --accent: #2864d7;
+  --surface: #ffffff;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  --background: black;
+  --foreground: #b5bdc4;
+  --muted: #d0d3da;
+  --border: #263449;
+  --accent: #5b8cff;
+  --surface: #111c2e;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-surface: var(--surface);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--background);
 }
 
 body {
+  min-height: 100vh;
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+
+
+.cloudony-title {
+  color: #98a8ba;
+}
+
+html[data-theme="dark"] .cloudony-title {
+  color: #ffffff;
 }
